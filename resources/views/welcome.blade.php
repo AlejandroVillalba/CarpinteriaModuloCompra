@@ -81,7 +81,8 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Proyecto Carpinteria - Utilizando laravel Modulo Compra
+                    <h2>Proyecto Carpinteria</h2>  
+                    <h4>Utilizando laravel Modulo Compra</h4>
                 </div>
 
 
