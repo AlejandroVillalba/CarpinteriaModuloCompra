@@ -21,8 +21,8 @@
         <h5 class="card-title">Card title</h5>
 
         <p class="card-text">
-          Some quick example text to build on the card title and make up the bulk of the card's
-          content.
+          Algún texto de ejemplo rápido para construir sobre el título de la tarjeta y formar la mayor parte de la tarjeta
+          contenido.
         </p>
         <a href="#" class="card-link">Card link</a>
         <a href="#" class="card-link">Another link</a>
