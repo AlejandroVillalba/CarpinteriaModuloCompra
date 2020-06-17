@@ -8,8 +8,7 @@
         <h5 class="card-title">Card title</h5>
 
         <p class="card-text">
-          Some quick example text to build on the card title and make up the bulk of the card's
-          content.
+          Un ejemplo de texto rapido para construir en el cuadro de título y enmarcar el área de contenido del texto.
         </p>
 
         <a href="#" class="card-link">Card link</a>
