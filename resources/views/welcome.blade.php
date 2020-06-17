@@ -45,12 +45,12 @@
 
     <div class="card card-primary card-outline">
       <div class="card-header">
-        <h5 class="m-0">Featured</h5>
+        <h5 class="m-0">Destacadas</h5>
       </div>
       <div class="card-body">
-        <h6 class="card-title">Special title treatment</h6>
+        <h6 class="card-title">Tratamiento especial de título</h6>
 
-        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+        <p class="card-text">Con texto de apoyo a continuación como una introducción natural a contenido adicional.</p>
         <a href="#" class="btn btn-primary">Go somewhere</a>
       </div>
     </div>
