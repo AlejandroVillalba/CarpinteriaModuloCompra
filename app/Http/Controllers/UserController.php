@@ -16,7 +16,7 @@ class UserController extends Controller
         $users = User::where('name', 'LIKE', '%' . $query . '%')
           ->orderBy('id', 'asc')
           ->paginate(5);
- 
+
         return view('usuarios.index', ['users' => $users, 'search'=> $query]);
       }
       //$users = User::all();
@@ -36,8 +36,8 @@ class UserController extends Controller
 
         $usuario-> name = request( 'name');
         $usuario-> email = request( 'email');
-        $usuario-> password = request( 'password');
-
+        $usuario-> password = bcrypt (request( 'password'));
+        // guardamos la contraseña encriptada para poder iniciar sesion desde nuesro agregar usuarios
         $usuario->save();
 
         return redirect( '/usuarios');
