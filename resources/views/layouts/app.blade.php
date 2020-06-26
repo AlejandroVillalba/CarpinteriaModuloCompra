@@ -118,7 +118,7 @@
 
                             <li class="nav-item has-treeview">
                                 <a href="#" class="nav-link">
-                                    <i class="nav-icon far fa-sticky-note"></i>
+                                    <i class="nav-icon fas fa-th"></i> 
                                     <p>Compra<i class="fas fa-angle-left right"></i></p>
                                 </a>
                                 <ul class="nav nav-treeview">
