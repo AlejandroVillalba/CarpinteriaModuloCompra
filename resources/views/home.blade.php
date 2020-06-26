@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Tablero</div>
+                <div class="card-header">Carpinteria</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -14,7 +14,7 @@
                         </div>
                     @endif
 
-                    Bienvenido estas conectado
+                    Bienvenido {{ Auth::user()->name }} te haz conectado con exito
                 </div>
             </div>
         </div>
