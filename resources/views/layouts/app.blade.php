@@ -123,10 +123,13 @@
                                 </a>
                                 <ul class="nav nav-treeview">
                                     <li class="nav-item">
-                                        <a href="/"
-                                            class="{{ Request::path() === '/' ? 'nav-link active' : 'nav-link' }}">
+                                        <a href="{{url('proveedor')}}"
+                                            class="{{ Request::path() === 'proveedor' ? 'nav-link active' : 'nav-link' }}">
                                             <i class="far fa-circle nav-icon"></i>
-                                            <p>Nuevo Proveedor</p>
+                                            <p>Nuevo Proveedor
+                                                <?php use App\Proveedor; $proveedor_count = Proveedor::all()->count(); ?>
+                                                <span class="right badge badge-danger">{{ $proveedor_count ?? '0' }}</span>
+                                            </p>
                                         </a>
                                     </li>
                                     <li class="nav-item">
