@@ -2,7 +2,7 @@
 @section ('content')
 	<div class="row">
         <div class="col-12">
-            <h1>Agregar producto</h1>
+            <h1>Agregar proveedor</h1>
             <form method="POST" action="{{route("proveedor.store")}}">
                 @csrf
                 <div class="form-group">
@@ -31,7 +31,16 @@
                            type="text" placeholder="email">
                 </div>
 
-                <button class="btn btn-success">Guardar</button>
+                <div class="form-group row mb-0">
+                            <div class="col-md-8 offset-md-4">
+                                <button type="submit" class="btn btn-primary">
+                                    {{ __('Aceptar') }}
+                                </button>
+                                <button type="reset" class="btn btn-primary">
+                                    {{ __('Cancelar') }}
+                                </button>
+                            </div>
+                        </div>
             </form>
         </div>
     </div>
