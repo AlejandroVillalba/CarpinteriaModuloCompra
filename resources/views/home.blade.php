@@ -15,7 +15,7 @@
                     @endif
 
                     Bienvenido {{ Auth::user()->name }} te haz conectado con exito
-                </div>
+                  </div>
             </div>
         </div>
     </div>

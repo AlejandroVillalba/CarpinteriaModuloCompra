@@ -1,7 +1,10 @@
 @extends ('layouts.app')
 @section ('content')
 <div class="container">
-    <h2>Lista de proveedores registrados <a href="proveedor/create"><button type="button" class="btn btn-success float-right">Agregar Proveedor</button></a></h2>
+    <h2>Lista de proveedores registrados
+      <a href="{{ route('reportePDF')}}" target="_blank" type="button" class="btn btn-primary">Reporte Proveedor</a>
+      <a href="proveedor/create"><button type="button" class="btn btn-success float-right">Agregar Proveedor</button></a>
+    </h2>
     <h6>
       @if($search ?? '')
         <div class="alert alert-primary" role="alert">
