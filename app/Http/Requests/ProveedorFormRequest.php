@@ -4,6 +4,8 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
+
+
 class ProveedorFormRequest extends FormRequest
 {
     /**
@@ -24,8 +26,8 @@ class ProveedorFormRequest extends FormRequest
     public function rules()
     {
         return [
-            'nombreEmpresa'=>'required',
-            'ruc'=>'required', 
+            'nombreEmpresa'=>'required|alpha',
+            'ruc'=>'required|numeric', 
             'direccion'=>'max:100',
             'telefono'=>'max:20',
             'email'=>'max:50',

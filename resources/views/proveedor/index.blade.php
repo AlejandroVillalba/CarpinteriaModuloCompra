@@ -34,12 +34,16 @@
             @csrf
             @method('DELETE')
               <button type="submit" class="btn btn-danger"><i class="fas fa-trash-alt"></i>Eliminar</button>
-              <a href="" data-target="#modal-delete-{{$pro->id}}" data-toggle="modal"><button class="btn btn-danger">E2</button></a>
+              <!-- boton eliminar con modal sin funcionamiento 
+              <a href="" data-target="#modal-delete-{{$pro->id}}" data-toggle="modal"><button class="btn btn-danger">ELiminar</button></a>
+          	  -->
           </form>
         </td>
       </tr>
     	@include('proveedor.modal')
+    	<!--Modal del boton eliminar
     	@include('proveedor.show')
+    	-->
 
       @endforeach
     </tbody>

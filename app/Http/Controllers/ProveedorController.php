@@ -75,6 +75,7 @@ class ProveedorController extends Controller
     public function destroy($id)
     {
         $proveedor = Proveedor::findOrFail($id);
+        
         $proveedor->delete();
 
         return redirect( '/proveedor');

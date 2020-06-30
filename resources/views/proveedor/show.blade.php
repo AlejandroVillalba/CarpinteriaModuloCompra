@@ -2,6 +2,7 @@
 
 <div class="modal fade modal-slide-in-right" aria-hidden="true"
 role="dialog" tabindex="-1" id="modal-delete-{{$pro->id}}">
+<form method="post" action="{{route('proveedor.destroy', $pro->id )}}">
 	<div class="modal-dialog">
 		<div class="modal-content">
 			<div class="modal-header">
@@ -14,9 +15,11 @@ role="dialog" tabindex="-1" id="modal-delete-{{$pro->id}}">
 			<div class="modal-body">
 				<h2>¿Deseas eliminar el registro de {{ $pro->nombreEmpresa }}? </h2>
 			</div>
+
 			<div class="modal-footer">
+
 				<button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-				<form method="post" action="{{route('proveedor.destroy', $pro->id )}}">
+				
 	@csrf
 	@method('DELETE')
 	<button type="submit" class="redondo btn btn-danger">
