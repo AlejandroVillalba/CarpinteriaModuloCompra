@@ -118,7 +118,7 @@
 
                             <li class="nav-item has-treeview">
                                 <a href="#" class="nav-link">
-                                    <i class="nav-icon fas fa-th"></i> 
+                                    <i class="nav-icon fas fa-th"></i>
                                     <p>Compra<i class="fas fa-angle-left right"></i></p>
                                 </a>
                                 <ul class="nav nav-treeview">
@@ -127,21 +127,20 @@
                                             class="{{ Request::path() === 'proveedor' ? 'nav-link active' : 'nav-link' }}">
                                             <i class="far fa-circle nav-icon"></i>
                                             <p>Nuevo Proveedor
-                                                <?php use App\Proveedor; $proveedor_count = Proveedor::all()->count(); ?>
-                                                <span class="right badge badge-danger">{{ $proveedor_count ?? '0' }}</span>
+                                                
                                             </p>
                                         </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="/"
-                                            class="{{ Request::path() === '/' ? 'nav-link active' : 'nav-link' }}">
+                                        <a href="/#"
+                                            class="{{ Request::path() === '/#' ? 'nav-link active' : 'nav-link' }}">
                                             <i class="far fa-circle nav-icon"></i>
                                             <p>Orden de Compra</p>
                                         </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="/"
-                                            class="{{ Request::path() === '/' ? 'nav-link active' : 'nav-link' }}">
+                                        <a href="/#"
+                                            class="{{ Request::path() === '/#' ? 'nav-link active' : 'nav-link' }}">
                                             <i class="far fa-circle nav-icon"></i>
                                             <p>Nuevo Ingreso</p>
                                         </a>

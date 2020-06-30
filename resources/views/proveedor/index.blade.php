@@ -8,7 +8,7 @@
             Los resultados de tu busqueda '{{ $search ?? '' }}' son:
         </div>
       @endif
-    </h6>	
+    </h6>
 <table class="table table-hover table-dark">
     <thead>
       <tr>
@@ -33,8 +33,8 @@
               <a href="{{ route('proveedor.edit', $pro->id) }}"><button type="button" class="btn btn-primary">Editar</button></a>
             @csrf
             @method('DELETE')
-              <button type="submit" class="btn btn-danger"><i class="fas fa-trash-alt"></i>Eliminar</button>
-              <!-- boton eliminar con modal sin funcionamiento 
+              <button type="submit" class="btn btn-danger">Eliminar</button>
+              <!-- boton eliminar con modal sin funcionamiento
               <a href="" data-target="#modal-delete-{{$pro->id}}" data-toggle="modal"><button class="btn btn-danger">ELiminar</button></a>
           	  -->
           </form>
