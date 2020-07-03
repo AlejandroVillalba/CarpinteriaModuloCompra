@@ -28,13 +28,13 @@
                     <label class="label">Telefono</label>
                     <input required value="{{$proveedor->telefono}}" autocomplete="off" name="telefono"
                            class="form-control"
-                           type="text" placeholder="telefono">
+                           type="number" placeholder="telefono">
                 </div>
                 <div class="form-group">
                     <label class="label">Email</label>
                     <input required value="{{$proveedor->email}}" autocomplete="off" name="email"
                            class="form-control"
-                           type="text" placeholder="Email">
+                           type="email" placeholder="Email">
                 </div>
 
 

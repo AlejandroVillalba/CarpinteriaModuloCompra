@@ -27,7 +27,7 @@ class ProveedorFormRequest extends FormRequest
     {
         return [
             'nombreEmpresa'=>'required|alpha',
-            'ruc'=>'required|numeric', 
+            'ruc'=>'required|max:20', 
             'direccion'=>'max:100',
             'telefono'=>'max:20',
             'email'=>'max:50',
