@@ -27,9 +27,15 @@ class ProveedorFormRequest extends FormRequest
     {
         return [
             'nombreEmpresa'=>'required|alpha',
+<<<<<<< HEAD
             'ruc'=>'required|max:20|unique:proveedor', 
             'direccion'=>'max:200',
             'telefono'=>'max:25',
+=======
+            'ruc'=>'required|max:20|unique:proveedor',
+            'direccion'=>'max:100',
+            'telefono'=>'max:20',
+>>>>>>> 7e60bc4e2481c63b47012365100004e180c4d03a
             'email'=>'max:50',
         ];
     }
