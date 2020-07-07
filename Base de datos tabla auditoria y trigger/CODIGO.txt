@@ -1,0 +1,59 @@
+CREATE TABLE proveedor_au_in (
+
+id_proveedorAu int PRIMARY KEY AUTO_INCREMENT,
+copia_nombreEmpresa varchar(255),
+copia_ruc varchar(255),
+copia_direccion varchar(255),
+copia_telefono varchar(255),
+copia_email varchar(255),
+usuario varchar(255),
+insertado  datetime
+)
+
+CREATE TRIGGER PROVEEDOR_AI AFTER INSERT ON proveedor FOR EACH ROW 
+INSERT INTO proveedor_au_in (copia_direccion,copia_email,copia_nombreEmpresa,copia_ruc,copia_telefono, insertado, usuario)
+VALUES(new.direccion, new.email, new.nombreEmpresa, new.ruc, new.telefono, now(), CURRENT_USER())
+
+
+CREATE TABLE proveedor_au_up (
+
+id_proveedorAu int PRIMARY KEY AUTO_INCREMENT,
+Anterior_nombreEmpresa varchar(255),
+Anterior_ruc varchar(255),
+Anterior_direccion varchar(255),
+Anterior_telefono varchar(255),
+Anterior_email varchar(255),
+    
+Nuevo_nombreEmpresa varchar(255),
+Nuevo_ruc varchar(255),
+Nuevo_direccion varchar(255),
+Nuevo_telefono varchar(255),
+Nuevo_email varchar(255),
+usuario varchar(255),
+modificado  datetime
+)
+
+CREATE TRIGGER AUTUALIZA_PROVEEDOR_BU BEFORE UPDATE ON proveedor FOR EACH ROW 
+INSERT INTO proveedor_au_up (Anterior_direccion,Anterior_email,Anterior_nombreEmpresa,Anterior_ruc,Anterior_telefono,
+                             Nuevo_direccion,Nuevo_email,Nuevo_nombreEmpresa,Nuevo_ruc,Nuevo_telefono,
+                             insertado, usuario)
+VALUES(old.direccion, old.email, old.nombreEmpresa, old.ruc, old.telefono, 
+       new.direccion, new.email, new.nombreEmpresa, new.ruc, new.telefono,
+       now(), CURRENT_USER())
+
+CREATE TABLE proveedor_au_del (
+
+id_proveedorAu int PRIMARY KEY AUTO_INCREMENT,
+Eliminado_nombreEmpresa varchar(255),
+Eliminado_ruc varchar(255),
+Eliminado_direccion varchar(255),
+Eliminado_telefono varchar(255),
+Eliminado_email varchar(255),
+usuario varchar(255),
+eliminado  datetime
+)
+
+CREATE TRIGGER ELIMINADO_PROVEEDOR_AD AFTER DELETE ON proveedor FOR EACH ROW 
+INSERT INTO proveedor_au_del (Eliminado_direccion, Eliminado_email, Eliminado_nombreEmpresa, Eliminado_ruc, Eliminado_telefono, eliminado, usuario)
+VALUES(old.direccion, old.email, old.nombreEmpresa, old.ruc, old.telefono, now(), CURRENT_USER())
+
