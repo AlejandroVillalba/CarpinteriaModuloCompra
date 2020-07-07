@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Http\Requests;
 
 use App\Proveedor;
 use App\Http\Requests\ProveedorFormRequest;

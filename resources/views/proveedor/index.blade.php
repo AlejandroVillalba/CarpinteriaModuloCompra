@@ -34,11 +34,11 @@
           <form action="{{route('proveedor.destroy', $pro->id)}}" method="post">
               <a href="" data-target="#modal-ver-{{$pro->id}}" data-toggle="modal"><button class="btn btn-danger">Ver</button></a>
               <a href="{{ route('proveedor.edit', $pro->id) }}"><button type="button" class="btn btn-primary">Editar</button></a>
-            @csrf
-            @method('DELETE')
+          
+            @method('DELETE')   @csrf
               <button type="submit" class="btn btn-danger">Eliminar</button>
               <!-- boton eliminar con modal sin funcionamiento
-              <a href="" data-target="#modal-delete-{{$pro->id}}" data-toggle="modal"><button class="btn btn-danger">ELiminar</button></a>
+              <a href=""data-target="#delete" data-toggle="modal"><button class="btn btn-danger">ELiminar</button></a>
           	  -->
           </form>
         </td>

@@ -1,7 +1,7 @@
 
 
 <div class="modal fade modal-slide-in-right" aria-hidden="true"
-role="dialog" tabindex="-1" id="modal-delete-{{$pro->id}}">
+role="dialog" tabindex="-1" id="delete">
 <form method="post" action="{{route('proveedor.destroy', $pro->id )}}">
 	<div class="modal-dialog">
 		<div class="modal-content">
@@ -20,8 +20,8 @@ role="dialog" tabindex="-1" id="modal-delete-{{$pro->id}}">
 
 				<button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
 				
-	@csrf
-	@method('DELETE')
+	
+	@method('DELETE') @csrf
 	<button type="submit" class="redondo btn btn-danger">
 		<i class="fas fa-trash-alt"></i> E2
 	</button>

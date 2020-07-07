@@ -1,17 +1,11 @@
 @extends ('layouts.app')
 @section ('content')
-
+@if(count($errors) > 0)
+		{{dd($errors)}}
+@endif
         <div class="col-12">
             <h1>Agregar proveedor</h1>
-            @if(count($errors) > 0)
-		<div class="errors">
-			<ul>
-			@foreach($errors->all() as $error)
-				<li>{{ $error }}</li>
-			@endforeach
-			</ul>
-		</div>
-	@endif
+            
             <form method="POST" action="{{route("proveedor.store")}}">
 
                 @csrf
@@ -29,7 +23,7 @@
                 <div class="form-group">
                     <label class="label">Ruc</label>
                     <input id="ruc" required autocomplete="ruc" value="{{ old('ruc') }}" name="ruc" class="form-control @error('unique') is-invalid @enderror"
-                           type="text" placeholder="Ingrese su ruc">
+                           type="text"  placeholder="Ingrese su ruc">
                            @error('unique')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -38,13 +32,19 @@
                 </div>
                 <div class="form-group">
                     <label class="label">Direccion</label>
-                    <input required autocomplete="direccion" value="{{ old('direccion') }}" name="direccion" class="form-control"
-                           type="text" placeholder="Ingrese su direccion">
+                    <input required  autocomplete="direccion" value="{{ old('direccion') }}" name="direccion" class="form-control"
+                           type="text" maxlength="200" placeholder="Ingrese su direccion">
                 </div>
                 <div class="form-group">
                     <label class="label">Telefono</label>
                     <input required autocomplete="numero de telefono" value="{{ old('telefono') }}" name="telefono" class="form-control"
-                           type="number" placeholder="Ingrese su numero de telefono">
+                           type="number" min="4" max="<25" placeholder="Ingrese su numero de telefono">
+                           @error('max-numeric')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                           @enderror
+                           
                 </div>
                 <div class="form-group">
                 	<label class="label">Email</label>
