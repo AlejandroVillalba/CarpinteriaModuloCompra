@@ -13,7 +13,7 @@
                     @endforeach
                 </ul>
               </div>
-            @endif
+            @endif 
   <form action="/usuarios" method="POST">
     <!-- toke -->
     @csrf

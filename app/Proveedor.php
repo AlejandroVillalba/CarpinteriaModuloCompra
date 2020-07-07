@@ -10,7 +10,7 @@ class Proveedor extends Model
 
     protected $primaryKey = 'id';
 
-    public $timestamps = true;
+    public $timestamps = false;
 
     protected $fillable = [
         'nombreEmpresa',
