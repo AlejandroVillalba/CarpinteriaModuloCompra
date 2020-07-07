@@ -36,7 +36,7 @@ modificado  datetime
 CREATE TRIGGER AUTUALIZA_PROVEEDOR_BU BEFORE UPDATE ON proveedor FOR EACH ROW 
 INSERT INTO proveedor_au_up (Anterior_direccion,Anterior_email,Anterior_nombreEmpresa,Anterior_ruc,Anterior_telefono,
                              Nuevo_direccion,Nuevo_email,Nuevo_nombreEmpresa,Nuevo_ruc,Nuevo_telefono,
-                             insertado, usuario)
+                             modificado, usuario)
 VALUES(old.direccion, old.email, old.nombreEmpresa, old.ruc, old.telefono, 
        new.direccion, new.email, new.nombreEmpresa, new.ruc, new.telefono,
        now(), CURRENT_USER())
