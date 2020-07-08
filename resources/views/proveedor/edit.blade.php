@@ -8,31 +8,31 @@
                 @csrf
                 <div class="form-group">
                     <label class="label">Nombre de la Empresa</label>
-                    <input required value="{{$proveedor->nombreEmpresa}}" autocomplete="off" name="nombreEmpresa"
+                    <input required maxlength="255" value="{{$proveedor->nombreEmpresa}}" autocomplete="off" name="nombreEmpresa"
                            class="form-control"
                            type="text" placeholder="Nombre de la empresa">
                 </div>
                 <div class="form-group">
                     <label class="label">Ruc</label>
-                    <input required value="{{$proveedor->ruc}}" autocomplete="off" name="ruc"
+                    <input required unique maxlength="100" value="{{$proveedor->ruc}}" autocomplete="off" name="ruc"
                            class="form-control"
                            type="text" placeholder="ruc">
                 </div>
                 <div class="form-group">
                     <label class="label">Direccion</label>
-                    <input required value="{{$proveedor->direccion}}" autocomplete="off" name="direccion"
+                    <input required maxlength="200"  value="{{$proveedor->direccion}}" autocomplete="off" name="direccion"
                            class="form-control"
                            type="text" placeholder="Direcion">
                 </div>
                 <div class="form-group">
                     <label class="label">Telefono</label>
-                    <input required value="{{$proveedor->telefono}}" autocomplete="off" name="telefono"
+                    <input required  max="99999999999999999999" value="{{$proveedor->telefono}}" autocomplete="off" name="telefono"
                            class="form-control"
                            type="number" placeholder="telefono">
                 </div>
                 <div class="form-group">
                     <label class="label">Email</label>
-                    <input required value="{{$proveedor->email}}" autocomplete="off" name="email"
+                    <input required maxlength="50" value="{{$proveedor->email}}" autocomplete="off" name="email"
                            class="form-control"
                            type="email" placeholder="Email">
                 </div>
