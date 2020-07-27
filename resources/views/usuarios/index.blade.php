@@ -17,6 +17,7 @@
         <th scope="col">Nombre</th>
         <th scope="col">Email</th>
         <th scope="col">Rol</th>
+        <th scope="col">Imagen</th>
         <th scope="col">Opciones</th>
       </tr>
     </thead>
@@ -32,12 +33,15 @@
           @endforeach
         </td>
         <td>
+          <img src="{{ asset('imagenes/'.$user->imagen) }}" alt="{{ $user->imagen}}" height="50px" width="50px">
+        </td>
+        <td>
           <form action="{{route('usuarios.destroy', $user->id)}}" method="post">
-              <a href="{{route('usuarios.show', $user->id)}}"><button type="button" class="btn btn-secondary">Ver</button></a>
-              <a href="{{ route('usuarios.edit', $user->id) }}"><button type="button" class="btn btn-primary">Editar</button></a>
+              <a href="{{route('usuarios.show', $user->id)}}"><button type="button" class="btn btn-secondary btn-sm"><i class="far fa-eye"></i></button></a>
+              <a href="{{ route('usuarios.edit', $user->id) }}"><button type="button" class="btn btn-primary btn-sm"><i class="far fa-edit"></i></button></a>
             @csrf
             @method('DELETE')
-              <button type="submit" class="btn btn-danger">Eliminar</button>
+              <button type="submit" class="btn btn-danger btn-sm"><i class="far fa-trash-alt"></i></button>
           </form>
         </td>
       </tr>
