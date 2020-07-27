@@ -31,13 +31,18 @@ class UserController extends Controller
     }
 
 
-    public function store(Request $request)
+    public function store(UserFormRequest $request)
     {
         $usuario = new User();
 
         $usuario-> name = request( 'name');
         $usuario-> email = request( 'email');
         $usuario-> password = bcrypt (request( 'password'));
+        if ($request->hasFile('imagen')) {
+          $file = $request->imagen;
+          $file->move(public_path() . '/imagenes', $file->getClientOriginalName());
+          $usuario->imagen = $file->getClientOriginalName();
+        }
         // guardamos la contraseña encriptada para poder iniciar sesion desde nuestro agregar usuarios
         $usuario->save();
 

@@ -68,14 +68,14 @@
                 <div class="sidebar">
                     <!-- Sidebar user panel (optional) -->
                     <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-                        <div class="image">
-                            <img src="https://w7.pngwing.com/pngs/811/233/png-transparent-computer-icons-user-login-desktop-others-blue-computer-prints-thumbnail.png" class="img-circle elevation-2" alt="User Image">
-                        </div>
                         <div class="info">
                             <a href="#" class="d-block">
                                 @guest
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Iniciar Sesión') }}</a>
                                 @else
+                                <div class="image">
+                                    <img src="{{ asset('imagenes/'.Auth::user()->imagen) }}" class="img-circle elevation-2" alt="User Image">
+                                </div>
                                 {{ Auth::user()->name }}
                                 <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                            document.getElementById('logout-form').submit();">
