@@ -9,7 +9,10 @@ use App\Http\Requests\UserFormRequest;
 use App\Http\Requests\UserEditFormRequest;
 class UserController extends Controller
 {
-
+    public function __construct()
+      {
+        $this->middleware('auth');
+      }
     public function index(Request $request)
     {
 
@@ -88,12 +91,16 @@ class UserController extends Controller
       }
       // guardamos el rol que tenemo y verificamos si es mayor a cero es que tiene un rol y le asignamos  a la varialble
       // role_id ese rol y con el modelo buscamos el id y actualizamos
+      // si no tiene rol le asignamos un rol
       $role = $usuario->roles;
       if (count($role) > 0) {
         $role_id = $role[0]->id;
+        User::find($id)->roles()->updateExistingPivot($role_id, ['role_id' => $request->get('rol')]);
+      }else {
+        $usuario->asignarRol($request->get('rol'));
       }
 
-      User::find($id)->roles()->updateExistingPivot($role_id, ['role_id' => $request->get('rol')]);
+
 
       $usuario->update();
 

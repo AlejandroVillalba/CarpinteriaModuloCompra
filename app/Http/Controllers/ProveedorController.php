@@ -10,7 +10,10 @@ use App\Http\Requests\ProveedorFormRequest;
 
 class ProveedorController extends Controller
 {
-
+  public function __construct()
+  {
+      $this->middleware('auth');
+  }
     public function index(Request $request)
     {
         if ($request) {
@@ -18,7 +21,7 @@ class ProveedorController extends Controller
         $proveedor = Proveedor::where('nombreEmpresa', 'LIKE', '%' . $query . '%')
           ->orderBy('id', 'asc')
           ->paginate(5);
- 
+
         return view('proveedor.index', ['proveedor' => $proveedor, 'search'=> $query]);
       }
     }
@@ -76,7 +79,7 @@ class ProveedorController extends Controller
     public function destroy($id)
     {
         $proveedor = Proveedor::findOrFail($id);
-        
+
         $proveedor->delete();
 
         return redirect( '/proveedor');
