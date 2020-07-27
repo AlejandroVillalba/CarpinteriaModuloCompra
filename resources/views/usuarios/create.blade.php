@@ -13,7 +13,7 @@
                     @endforeach
                 </ul>
               </div>
-            @endif 
+            @endif
   <form action="/usuarios" method="POST">
     <!-- toke -->
     @csrf
@@ -34,6 +34,15 @@
                  <strong>{{ $message }}</strong>
              </span>
     @enderror
+  </div>
+  <div class="form-group">
+    <label for="email">Rol</label>
+    <select name="rol" class="form-control">
+      <option selected disabled> Elige un rol para este usuario</option>
+      @foreach($roles as $role)
+      <option value="{{ $role->id }}">{{ $role->name}}</option>
+      @endforeach
+    </select>
   </div>
   <div class="form-group">
     <label for="password">Ingrese su contraseña</label>

@@ -16,6 +16,7 @@
         <th scope="col">ID</th>
         <th scope="col">Nombre</th>
         <th scope="col">Email</th>
+        <th scope="col">Rol</th>
         <th scope="col">Opciones</th>
       </tr>
     </thead>
@@ -25,6 +26,11 @@
         <th scope="row">{{$user->id}}</th>
         <td>{{$user->name}}</td>
         <td>{{$user->email}}</td>
+        <td>
+          @foreach($user->roles as $role)
+            {{ $role->name}}
+          @endforeach
+        </td>
         <td>
           <form action="{{route('usuarios.destroy', $user->id)}}" method="post">
               <a href="{{route('usuarios.show', $user->id)}}"><button type="button" class="btn btn-secondary">Ver</button></a>

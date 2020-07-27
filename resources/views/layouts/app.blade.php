@@ -103,19 +103,32 @@
                                     <p>Inicio</p>
                                 </a>
                             </li>
-
+                            @can('administrador')
                             <li class="nav-item">
                                 <a href="{{url('usuarios')}}"
                                     class="{{ Request::path() === 'usuarios' ? 'nav-link active' : 'nav-link' }}">
                                     <i class="nav-icon fas fa-users"></i>
                                     <p>
                                         Usuarios
-                                        <?php use App\User; $users_count = User::all()->count(); ?>
+                                        <?php $users_count = DB::table('users')->count(); ?>
                                         <span class="right badge badge-danger">{{ $users_count ?? '0' }}</span>
                                     </p>
                                 </a>
                             </li>
+                            @endcan
 
+                            @can('administrador')
+                            <li class="nav-item">
+                                <a href="{{url('roles')}}"
+                                    class="{{ Request::path() === 'roles' ? 'nav-link active' : 'nav-link' }}">
+                                    <i class="nav-icon fas fa-users"></i>
+                                    <p>Roles
+                                    </p>
+                                </a>
+                            </li>
+                            @endcan
+
+                            @can('moderador' or 'administrador')
                             <li class="nav-item has-treeview">
                                 <a href="#" class="nav-link">
                                     <i class="nav-icon fas fa-th"></i>
@@ -127,7 +140,7 @@
                                             class="{{ Request::path() === 'proveedor' ? 'nav-link active' : 'nav-link' }}">
                                             <i class="far fa-circle nav-icon"></i>
                                             <p>Nuevo Proveedor
-                                                
+
                                             </p>
                                         </a>
                                     </li>
@@ -147,7 +160,7 @@
                                     </li>
                                 </ul>
                             </li>
-
+                            @endcan
                         </ul>
                     </nav>
                     <!-- /.sidebar-menu -->
