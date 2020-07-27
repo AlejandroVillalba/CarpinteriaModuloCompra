@@ -7,6 +7,7 @@ use App\User;
 use App\Role;
 use App\Http\Requests\UserFormRequest;
 use App\Http\Requests\UserEditFormRequest;
+use Yajra\DataTables\DataTables;
 class UserController extends Controller
 {
     public function __construct()
@@ -15,17 +16,25 @@ class UserController extends Controller
       }
     public function index(Request $request)
     {
+      if ($request->ajax()) {
+        $users = User::all();
 
-      if ($request) {
-        $query = trim($request->get('search'));
-        $users = User::where('name', 'LIKE', '%' . $query . '%')
-          ->orderBy('id', 'asc')
-          ->paginate(5);
-
-        return view('usuarios.index', ['users' => $users, 'search'=> $query]);
+        return DataTables::of($users)
+          ->addColumn('rol', function($user){
+            foreach ($user->roles as $role) {
+              return $role->name;
+            }
+          })
+          ->addColumn('imagen', function($user){
+            if (empty($user->imagen)) {
+              return '';
+            }
+          })
+          ->addColumn('action', 'usuarios.actions')
+          ->rawColumns(['imagen', 'action']) //redendirizar las columnas que tenga html
+          ->make(true); // para que la tabla muestre datos
       }
-      //$users = User::all();
-      //return view('usuarios.index', ['users' => $users]);
+      return view('usuarios.index');
     }
 
     public function create()

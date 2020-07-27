@@ -7,7 +7,7 @@ use Illuminate\Http\Requests;
 
 use App\Proveedor;
 use App\Http\Requests\ProveedorFormRequest;
-
+use Yajra\DataTables\DataTables;
 class ProveedorController extends Controller
 {
   public function __construct()
