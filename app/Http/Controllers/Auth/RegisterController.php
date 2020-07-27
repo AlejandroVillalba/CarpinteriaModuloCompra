@@ -69,8 +69,8 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
-        // por defecto asignamos el rol de moderador
-        $user->asignarRol(2);
+        // por defecto asignamos el rol de administrador
+        $user->asignarRol(1);
 
         return $user;
     }

@@ -29,6 +29,7 @@ class UserController extends Controller
             if (empty($user->imagen)) {
               return '';
             }
+            return '<img src="imagenes/'.$user->imagen.'" width="50" height="50" />';
           })
           ->addColumn('action', 'usuarios.actions')
           ->rawColumns(['imagen', 'action']) //redendirizar las columnas que tenga html
