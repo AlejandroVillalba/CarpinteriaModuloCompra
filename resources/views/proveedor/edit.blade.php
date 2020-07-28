@@ -2,7 +2,7 @@
 @section ('content')
 	<div class="container">
         <div class="col-12">
-            <h1>Editar producto</h1>
+            <h1>Editar proveedor</h1>
             <form method="POST" action="{{route("proveedor.update", [$proveedor])}}">
                 @method("PUT")
                 @csrf
