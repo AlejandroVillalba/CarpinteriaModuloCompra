@@ -10,20 +10,21 @@ use App\Http\Requests\ProveedorFormRequest;
 use Yajra\DataTables\DataTables;
 class ProveedorController extends Controller
 {
-  public function __construct()
-  {
-      $this->middleware('auth');
-  }
+    public function __construct()
+      {
+        $this->middleware('auth');
+      }
     public function index(Request $request)
     {
-        if ($request) {
-        $query = trim($request->get('search'));
-        $proveedor = Proveedor::where('nombreEmpresa', 'LIKE', '%' . $query . '%')
-          ->orderBy('id', 'asc')
-          ->paginate(5);
+        if ($request->ajax()) {
+          $proveedor = Proveedor::all();
 
-        return view('proveedor.index', ['proveedor' => $proveedor, 'search'=> $query]);
+          return DataTables::of($proveedor)
+            ->addColumn('action', 'proveedor.actiones')
+            ->rawColumns(['action']) //redendirizar las columnas que tenga html
+            ->make(true); // para que la tabla muestre datos
       }
+      return view('proveedor.index');
     }
 
 
